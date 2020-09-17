@@ -2,6 +2,8 @@
 A simple yet very powerful noise remover and reducer built in python.
 The noise removed by using Wavelet Transform.
 
+Can reduce noise from multiple format files and multi channels (mono, stereo)
+
 The code is very robust, can process very large files without consuming 
 huge amount og memory.
 Tested with GB > files.
