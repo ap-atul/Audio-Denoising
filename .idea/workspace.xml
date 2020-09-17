@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13c5c22-9044-44e0-a338-c16ae65fad26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/linkedList.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/linkedList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/noiseProfiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/noiseProfiler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/waveletHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/waveletHelper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/windowBundle.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/windowBundle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,33 +151,53 @@
       <option name="presentableId" value="Default" />
       <updated>1598421157717</updated>
     </task>
+    <task id="LOCAL-00001" summary="multichannel audio can be processes. Writing data continuously to reduce mem usage">
+      <created>1600318775804</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600318775804</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="multichannel audio can be processes. Writing data continuously to reduce mem usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="multichannel audio can be processes. Writing data continuously to reduce mem usage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="34" y="202" width="605" height="397" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598431014324">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="34" y="202" width="605" height="397" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741@0.27.1366.741" timestamp="1598431014324" />
+    <state x="284" y="27" width="787" height="741" key="CommitChangelistDialog2" timestamp="1600318774859">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="284" y="27" width="787" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1600318774859" />
     <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1599488578692">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1599488578692" />
-    <state width="1343" height="165" key="GridCell.Tab.0.bottom" timestamp="1600318567492">
+    <state width="1343" height="216" key="GridCell.Tab.0.bottom" timestamp="1600318796153">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="165" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1600318567492" />
-    <state width="1343" height="165" key="GridCell.Tab.0.center" timestamp="1600318567492">
+    <state width="1343" height="216" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1600318796153" />
+    <state width="1343" height="216" key="GridCell.Tab.0.center" timestamp="1600318796152">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="165" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1600318567492" />
-    <state width="1343" height="165" key="GridCell.Tab.0.left" timestamp="1600318567491">
+    <state width="1343" height="216" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1600318796152" />
+    <state width="1343" height="216" key="GridCell.Tab.0.left" timestamp="1600318796151">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="165" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1600318567491" />
-    <state width="1343" height="165" key="GridCell.Tab.0.right" timestamp="1600318567492">
+    <state width="1343" height="216" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1600318796151" />
+    <state width="1343" height="216" key="GridCell.Tab.0.right" timestamp="1600318796152">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1343" height="165" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1600318567492" />
+    <state width="1343" height="216" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1600318796152" />
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600318783731">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1600318783731" />
     <state x="336" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599491002397">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
