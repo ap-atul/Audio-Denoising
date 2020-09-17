@@ -4,13 +4,13 @@ import soundfile
 from tqdm import tqdm
 from lib.noiseProfiler import NoiseProfiler
 
-inputFile = "example/example.wav"
-outputFile = "example/example_denoised.wav"
+inputFile = "example.wav"
+outputFile = "example_de_noised.wav"
 
 
 def mad(arr):
     """ Median Absolute Deviation: a "Robust" version of standard deviation.
-        Indices variabililty of the sample.
+        Indices variability of the sample.
         https://en.wikipedia.org/wiki/Median_absolute_deviation 
     """
     arr = np.ma.array(arr).compressed()
@@ -27,7 +27,6 @@ def doAll():
     :return: write the de-noised file
     """
     data, rate = soundfile.read(inputFile)
-    print(len(data))
     coefficients = pywt.wavedec(data, 'db4', mode='per')
     sigma = mad(coefficients[- 1])
 
@@ -41,27 +40,25 @@ def doAll():
 def doStep():
     """
     reads the file in bits of 10% at one time, and saves
-    the chunks in array. Write at the end when all chunks
-    are processed.
+    the chunks in array. Clean the chunk and write the chunk to
+    the output file.
+    De noising for all channels
     Useful for big audio files.
-    As the size of chunk is reduced the processing will take longer
-    :return:
+    :return: None
     """
     info = soundfile.info(inputFile)  # getting info of the audio
     rate = info.samplerate
-    cleanSignal = np.array([])
-    for block in tqdm(soundfile.blocks(inputFile, int((rate * info.duration) * 0.10))):
-        if len(block.shape) > 1:
-            block = block.T[0]
-        coefficients = pywt.wavedec(block, 'db4', mode='per')
-        sigma = mad(coefficients[- 1])
 
-        thresh = sigma * np.sqrt(2 * np.log(len(block)))
-        coefficients[1:] = (pywt.threshold(i, value=thresh, mode='soft') for i in coefficients[1:])
+    with soundfile.SoundFile(outputFile, "w", samplerate=rate, channels=info.channels) as of:
+        for block in tqdm(soundfile.blocks(inputFile, int(rate * info.duration * 0.10))):
+            coefficients = pywt.wavedec(block, 'db4', mode='per', )
 
-        cleanSignal = np.concatenate([cleanSignal, pywt.waverec(coefficients, 'db4', mode='per')])
+            sigma = mad(coefficients[- 1])
+            thresh = sigma * np.sqrt(2 * np.log(len(block)))
 
-    soundfile.write(outputFile, np.array(cleanSignal, dtype=float), rate)
+            coefficients[1:] = (pywt.threshold(i, value=thresh, mode='soft') for i in coefficients[1:])
+            clean = pywt.waverec(coefficients, 'db4', mode='per')
+            of.write(clean)
 
 
 def genNoiseProfile():

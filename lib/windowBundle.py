@@ -6,12 +6,10 @@ A class to keep:
 To be utilized to later extract the level that was surpassed the x% of the time
 """
 
-from typing import List
+import math
 
 import numpy
 import pywt
-from lib import waveletHelper
-import math
 
 
 class WindowBundle():
@@ -27,7 +25,7 @@ class WindowBundle():
         self.wlevels = None
 
     def extractWaveletPacket(self, dbName, wlevels):
-        if self.waveletPacket != None:
+        if self.waveletPacket is not None:
             return self.waveletPacket
 
         self.dbName = dbName
@@ -67,7 +65,7 @@ class WindowBundle():
         return self.data
 
     def getRMS(self):
-        if self.rms != None:
+        if self.rms is not None:
             return self.rms
 
         squaredSum = numpy.sum(numpy.power(self.data, 2))
@@ -78,7 +76,7 @@ class WindowBundle():
     # gets the Mean Absolute
     def getMA(self):
         _sum = numpy.sum(numpy.abs(self.data))
-        ma=_sum / len(self.data)
+        ma = _sum / len(self.data)
 
         return ma
 
@@ -87,7 +85,7 @@ class WindowBundle():
 
     @staticmethod
     def joinDenoisedData(windows: list):
-        result=[]
+        result = []
         for window in windows:
             result.extend(window.denoisedData)
 
@@ -95,7 +93,7 @@ class WindowBundle():
 
     @staticmethod
     def joinData(windows: list):
-        result=[]
+        result = []
         for window in windows:
             result.extend(window.data)
 
@@ -103,7 +101,7 @@ class WindowBundle():
 
     @staticmethod
     def joinNoiseData(windows: list):
-        result=[]
+        result = []
         for window in windows:
             result.extend(window.noiseWindow.data)
 

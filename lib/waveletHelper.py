@@ -14,30 +14,6 @@ def waveletLeafData(waveletPacket: pywt.WaveletPacket):
     return leafData
 
 
-def morphWaveletPacket(originalPacket: pywt.WaveletPacket, targetPacket=None, steps=1):
-    if targetPacket == None:
-        return originalPacket
-
-    result = []
-    morphed = pywt.WaveletPacket(
-        data=None, wavelet='db8', mode='symmetric')
-    leafNodes = [node.path for node in originalPacket.get_level(
-        originalPacket.maxlevel, 'freq')]
-
-    for node in leafNodes:
-        originalData = originalPacket[node].data
-        targetData = targetPacket[node].data
-        dataDiff = originalData - targetData
-
-
-def audioFromWavelets(wavelets: list()):
-    audio = []
-    for wavelet in wavelets:
-        audio.extend(wavelet.reconstruct())
-
-    return audio
-
-
 def plotWavelets(wavelets: list):
     plt.figure()
     subplotIdx = 1

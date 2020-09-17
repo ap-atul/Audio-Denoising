@@ -3,6 +3,7 @@ A python linked list implementation
 relying on http://ls.pwd.io/2014/08/singly-and-doubly-linked-lists-in-python/
 """
 
+
 class Node:
 
     def __init__(self, data, prev=None, next=None):
@@ -10,24 +11,24 @@ class Node:
         self.prev = prev
         self.next = next
 
-    
     def getNextWithValidData(self):
         current = self.next
-        while current != None:
-            if current.data != None:
+        while current is not None:
+            if current.data is not None:
                 return current
             current = current.next
-        
+
         return None
-    
+
     def getPrevWithValidData(self):
         current = self.prev
-        while current != None:
-            if current.data != None:
+        while current is not None:
+            if current.data is not None:
                 return current
             current = current.prev
-        
+
         return None
+
 
 class LinkedList:
 
@@ -52,7 +53,7 @@ class LinkedList:
     def getAsList(self):
         ret = list()
         current = self.first
-        while current != None:
+        while current is not None:
             ret.append(current)
             current = current.next
 

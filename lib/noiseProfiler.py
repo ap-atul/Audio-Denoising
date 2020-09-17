@@ -66,71 +66,6 @@ class NoiseProfiler:
         plt.plot(noiseData)
         plt.show()
 
-    # Generally in each iteration we return the current window plus what's missing from the past
-    # except if we are at the last noise window: then we have to care for the
-    # missing future windows
-    def __getPredictedDataBetweenNoiseWindows(self, currentWindow, prevWindow, nextWindow):
-        result = []
-        if prevWindow is None:
-            # it's the first noise window, so return this (replicated enough
-            # times)
-            numberToFill = currentWindow.id + 1
-            for i in range(numberToFill):
-                result.extend(currentWindow.data)
-        elif nextWindow is None:
-            # if we're missing some windows from the end, pad/duplicate
-            nWindows = len(self.windows)
-            numberToFill = nWindows - currentWindow.id
-            for i in range(numberToFill):
-                result.extend(currentWindow.data)
-        else:
-            # we are between two noise windows
-            numberToFill = currentWindow.id - prevWindow.id
-            # TODO make some
-            for i in range(numberToFill):
-                result.extend(currentWindow.data)
-
-        return result
-
-    def __getPredictedDataBetweenNoiseNodes(self, currNode, prevNode, nextNode):
-        result = []
-        if prevNode is None:
-            # it's the first noise window, so return this
-            currentWindow = currNode.data
-            numberToFill = currentWindow.id + 1
-        return result
-
-    def __getWindowIndexInList(self, needle, haystack):
-        pos = 0
-        for candidate in haystack:
-            if candidate == needle:
-                return pos
-            pos += 1
-
-        return -1
-
-    def __getUpToNConsecutiveWindows(self, lastWindow, windowList, n):
-        result = []
-        result.append
-        windowIndex = self.__getWindowIndexInList(lastWindow, windowList)
-
-    # def __circularPadWindow(self, window, windowList, times):
-
-    def getNoiseOrZero(self):
-        self.threshold = self.extractRMSthresholdFromWindows(
-            self.percentileLevel)
-        self.extractSignalAndNoiseWindows(self.threshold)
-
-        noiseData = []
-        for noiseNode in self.noiseLinked.getAsList():
-            window = noiseNode.data
-            if window is None:
-                noiseData.extend(numpy.zeros(self.windowSamples))
-            else:
-                noiseData.extend(window.data)
-
-        return noiseData
-
     def __getNodesWindowData(self, nodes):
         data = []
         for node in nodes:
@@ -210,18 +145,6 @@ class NoiseProfiler:
 
         self.cleanUp()
         return noiseDataPredicted
-
-    def __getPreviousNoiseWindowFromLinkedList(self, node):
-        prevNode = node.getPrevWithValidData()
-        if prevNode is not None:
-            return prevNode.data
-        return None
-
-    def __getNextNoiseWindowFromLinkedList(self, node):
-        nextNode = node.getNextWithValidData()
-        if nextNode is not None:
-            return nextNode.data
-        return None
 
     def extractRMSthresholdFromWindows(self, percentileLevel):
         if self.threshold is not None:
