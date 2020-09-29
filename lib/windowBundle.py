@@ -12,7 +12,7 @@ import numpy
 import pywt
 
 
-class WindowBundle():
+class WindowBundle:
     def __init__(self, data: numpy, id):
         self.id = id
         self.data = data

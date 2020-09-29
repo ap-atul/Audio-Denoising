@@ -1,9 +1,11 @@
 """
 Class to create a noise profile from an audio input
 """
-import numpy
-import matplotlib.pyplot as plt
 import math
+
+import matplotlib.pyplot as plt
+import numpy
+
 from lib import windowBundle, waveletHelper
 from lib.linkedList import LinkedList
 
@@ -179,7 +181,7 @@ class NoiseProfiler:
             windowEnd = windowBeginning + self.windowSamples
             windowData = self.x[windowBeginning:windowEnd]
             # checking wether we need to pad the last band
-            if (i == nWindows - 1 and windowEnd - windowBeginning < self.windowSamples):
+            if i == nWindows - 1 and windowEnd - windowBeginning < self.windowSamples:
                 paddingLength = windowEnd - windowBeginning - self.windowSamples
                 paddingArray = numpy.zeros(paddingLength)
                 windowData = numpy.concatenate(windowData, paddingArray)
