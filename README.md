@@ -15,8 +15,8 @@ The thresholding used is VisuShrink method or the universal threshold introduce 
     ```python
     from denoise import AudioDeNoise 
     
-    audioDenoiser = AudioDeNoise("input.wav")
-    audioDenoiser.deNoise("input_denoised.wav")
-    audioDenoiser.generateNoiseProfile("input_noise_profile.wav")
+    audioDenoiser = AudioDeNoise(inputFile="input.wav")
+    audioDenoiser.deNoise(outputFile="input_denoised.wav")
+    audioDenoiser.generateNoiseProfile(noiseFile="input_noise_profile.wav")
     ```
 
