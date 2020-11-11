@@ -74,7 +74,7 @@ class AudioDeNoise:
 
         with soundfile.SoundFile(outputFile, "w", samplerate=rate, channels=info.channels) as of:
             for block in tqdm(soundfile.blocks(self.__inputFile, int(rate * info.duration * 0.10))):
-                coefficients = pywt.wavedec(block, 'db4', mode='per')
+                coefficients = pywt.wavedec(block, 'db4', mode='per', level=2)
 
                 #  getting variance of the input signal
                 sigma = mad(coefficients[- 1])
