@@ -7,6 +7,8 @@ unwanted signal like noise. The thresholding method is the most important in the
 
 The thresholding used is VisuShrink method or the universal threshold introduce by Donoho
 
+This repo uses `pywt`. I have a custom implementation of wavelet here [wavelets](https://github.com/AP-Atul/wavelets) & [wavelets-ext](https://github.com/AP-Atul/wavelets-ext) (cython speed up)
+
 
 ## Execution
 - Install the dependencies
