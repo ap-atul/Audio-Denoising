@@ -102,7 +102,7 @@ class AudioDeNoise:
             name for the noise signal extracted
         """
         data, rate = soundfile.read(noiseFile)
-        self.__noiseProfile = NoiseProfiler(noiseFile)
+        self.__noiseProfile = NoiseProfiler(data)
         noiseSignal = self.__noiseProfile.getNoiseDataPredicted()
 
         soundfile.write(noiseFile, noiseSignal, rate)
